@@ -44,7 +44,7 @@ for count, submission in enumerate(reddit.subreddit(SUBREDDIT_NAME).top(time_fil
     submission.comments.replace_more(limit=None)
     print(submission.id)
     for comment in submission.comments.list():
-        if comment.score>=1 and len(comment.body)>69 and len(comment.body.split())>4 and all(char not in comment.body for char in prohibited_chars):
+        if comment.score>=1 and len(comment.body)>69 and len(comment.body.split())>4 and all(char not in comment.body for char in prohibited_chars): # arbitrary restrictions I applied to my dataset to make it to make it easier for my markov code to process the lines, change them as you want, or get rid of them entirely
             # ok.append(comment.body)
 
             with open(FILE_PATH, 'a') as f:
